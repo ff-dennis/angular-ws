@@ -2,10 +2,12 @@
 module home {
     'use strict';
     /**
-     * The main controller for the app. The controller:
+     * The controller of home feature:
      */
     export class HomeCtrl {
         myVariable:string;
+        myArray:string[] = [];
+        myBoolean:boolean;
 
         // $inject annotation.
         // It provides $injector with information about dependencies to be injected into constructor
@@ -17,17 +19,37 @@ module home {
         // dependencies are injected via AngularJS $injector
         // controller's name is registered in Application.ts and specified from ng-controller attribute in index.html
         constructor(
-            private $scope: IHomeScope
+            private scope: IHomeScope
         ) {
             console.log("constructor HomeCtrl");
 
             this.myVariable = 'Set by controllers constructor';
 
-            //$scope.vm = this;
-            // 'vm' stands for 'view model'. We're adding a reference to the controller to the scope
-            // for its methods to be accessible from view / HTML
-
+            scope.$watch( () => this.myBoolean, (newValue:any, oldValue:any) => {
+                console.log("Neuer Wert:", newValue);
+            });
         }
+
+        resetMyVariable():void {
+            this.myVariable = "";
+        }
+
+        setMyVariable(newValue:string):void {
+            this.myVariable = newValue;
+        }
+
+        initMyArray():void {
+            this.myArray = ["Frankfurt", "München", "Hamburg", "Nürnberg"];
+        }
+
+        addToMyArray(newCity:string):void {
+            this.myArray.push(newCity);
+        }
+
+        hasCities():boolean {
+            return this.myArray && this.myArray.length > 0
+        }
+
 
     }
 }

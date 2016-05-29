@@ -3,13 +3,77 @@
     <h1>Home</h1>
 
     <div class="row">
-        <div class="col-md-6">
-            6
+        <div class="col-md-3">
+            <h2> ng-bind</h2>
+            <span ng-bind="vm.myVariable"></span>
         </div>
-        <div class="col-md-6">
-            6
+        <div class="col-md-3">
+            <h2> ng-model</h2>
+            <input class="form-control" ng-model="vm.myVariable">
+        </div>
+        <div class="col-md-2">
+            <h2> ng-click</h2>
+            <button class=" btn" ng-click="vm.resetMyVariable()">Reset</button>
+            <button class=" btn" ng-click="vm.setMyVariable('pentasys')">pentasys</button>
         </div>
     </div>
-    Hier gehts los!
-    <span ng-bind="vm.myVariable"></span>
+
+    <h2>conditions</h2>
+
+    <div class="row">
+        <div class="col-md-3">
+            <label>
+                <input type="checkbox" ng-model="vm.myBoolean">
+                MyBoolean
+            </label>
+        </div>
+
+        <div class="col-md-3" ng-show="vm.myBoolean">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>Ja, die Option ist aktiviert! (ng-show)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" ng-hide="!vm.myBoolean">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>Ja, die Option ist aktiviert! (ng-hide)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" ng-if="vm.myBoolean">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>Ja, die Option ist aktiviert! (ng-if)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>ng-repeat</h2>
+
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn" ng-click="vm.initMyArray()">initMyArray</button>
+            <div class="col-md-8">
+                <input ng-model="newCity" placeholder="add new city">
+            </div>
+            <div class="col-md-4">
+                <button class="btn" ng-click="vm.addToMyArray(newCity)">Add</button>
+            </div>
+        </div>
+        <div class="col-md-3" data-ng-if="vm.hasCities()">
+            <input class="form-control" type="text" ng-model="searchString">
+            <ul>
+                <li ng-repeat="city in vm.myArray | filter:searchString ">
+                    <p ng-class="{'bg-success' : city === 'Frankfurt',
+                                  'bg-info' : city === 'Köln'
+                                }">{{city}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
