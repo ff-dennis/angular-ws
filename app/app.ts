@@ -11,7 +11,8 @@ module app {
         'ngRoute',
 
         /**Internal modules **/
-        'home'
+        'home',
+        'about'
     ]).
         config(config);
 
