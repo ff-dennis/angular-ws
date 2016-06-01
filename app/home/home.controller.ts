@@ -9,6 +9,7 @@ module home {
         myArray:string[] = [];
         myBoolean:boolean;
         dennis:about.IPerson = new about.Webmaster("Dennis");
+        entryExample:guestbook.IEntry;
 
         // $inject annotation.
         // It provides $injector with information about dependencies to be injected into constructor
@@ -29,6 +30,10 @@ module home {
             scope.$watch( () => this.myBoolean, (newValue:any, oldValue:any) => {
                 console.log("Neuer Wert:", newValue);
             });
+
+            this.entryExample = <guestbook.IEntry> {};
+            this.entryExample.content = "Eine wirklich sehr hübsche Seite!";
+            this.entryExample.userName = "Dennis";
         }
 
         resetMyVariable():void {

@@ -12,7 +12,8 @@ module app {
 
         /**Internal modules **/
         'home',
-        'about'
+        'about',
+        'guestbook'
     ]).
         config(config);
 
