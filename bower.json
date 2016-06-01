@@ -1,0 +1,14 @@
+{
+  "name": "pentasys-angular-ws",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "jquery": "~1.11.0",
+    "angular": "~1.5",
+    "angular-route": "~1.5"
+  },
+  "devDependencies": {
+    "DefinitelyTyped": "*",
+    "angular-mocks": "~1.5"
+  }
+}
