@@ -29,7 +29,7 @@
             templateUrl: '/app/about/about.tpl.html',
         };
 
-        $stateProvider.state('about', about     );
+        $stateProvider.state('about', about);
 
     }
 
