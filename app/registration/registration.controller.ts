@@ -8,7 +8,6 @@ module registration {
      */
     export class RegistrationCtrl {
 
-
         public static $inject = [
             '$scope'
         ];
