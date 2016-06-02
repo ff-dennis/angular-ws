@@ -1,0 +1,26 @@
+<div>
+
+    <form role="form" id="contact">
+        <div class="form-group" id="surename">
+            <label for="surename-input" class="control-label">Vorname</label>
+            <input ng-minlength="5" ng-maxlength="200" type="text" id="surename-input" class="form-control" placeholder="Ihr Vorname?">
+        </div>
+        <div class="form-group" id="name">
+            <label for="name-input" class="control-label">Nachname</label>
+            <input ng-required="true" type="text" id="name-input" class="form-control" placeholder="Ihr Nachname?">
+        </div>
+        <div class="form-group" id="email">
+            <label for="email-input" class="control-label">E-Mail Adresse</label>
+            <input ng-pattern="*" type="text" id="email-input" class="form-control" placeholder="Ihre E-Mail Adresse?">
+        </div>
+        <div class="form-group" id="message">
+            <label for="message-input" class="control-label">Nachricht</label>
+            <textarea id="message-input" class="form-control">Ihre Nachricht bitte...</textarea>
+        </div>
+
+        <div class="form-group text-right">
+            <button type="submit" id="submitBtn" class="btn btn-primary btn-lg">Absenden</button>
+        </div>
+    </form>
+
+</div>
