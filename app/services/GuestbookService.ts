@@ -3,32 +3,27 @@
  */
 
 module guestbook.services {
+    import IGuestbookRepository = guestbook.repository.IGuestbookRepository;
     export interface IGuestbookService {
         getEntries(); //:ng.Promise<any>;
-        saveEntry(); //:ng.Promise<any>;
     }
 
-    class GuestbookService implements IGuestbookService{
+   export class GuestbookService implements IGuestbookService{
 
         public static $inject = [
-            '$scope' //Repository
+            '$scope',
+             'GuestbookRepository'
         ];
 
-        constructor(){
-
+        constructor(private scope:ng.IScope,
+                    private repository: IGuestbookRepository){
         }
 
         getEntries(){
-
+            return this.repository.getEntries();
         }
-
-        saveEntry(){
-
-        }
-
     }
 
     angular.module('guestbook').service('GuestbookService', GuestbookService);
-
 
 }
