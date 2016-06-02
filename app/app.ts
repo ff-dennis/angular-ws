@@ -9,6 +9,7 @@ module app {
     angular.module('app', [
         /**External modules **/
         'ngRoute',
+        'ui.router',
 
         /**Internal modules **/
         'home',
