@@ -6,9 +6,8 @@
  */
 module about {
     'use strict';
-    angular.module('about', [])
-        .directive('psPerson', () => new about.PersonDirective())
-        .controller('AboutCtrl', about.AboutCtrl);
+    angular.module('about', ['ui.router'])
+        .controller('AboutCtrl',  about.AboutCtrl);
 
 
 }

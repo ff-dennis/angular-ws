@@ -1,7 +1,7 @@
 /**
  * Created by rrjollol on 02.06.2016.
  */
-module registration {
+module routes {
     'use strict';
     /**
      * The controller of registration feature:
