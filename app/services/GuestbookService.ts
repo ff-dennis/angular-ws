@@ -28,4 +28,7 @@ module app.guestbook.services {
 
     }
 
+    angular.module('app.guestbook.services').service('GuestbookService', GuestbookService);
+
+
 }
