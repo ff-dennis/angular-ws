@@ -8,7 +8,6 @@ module app {
     'use strict';
     angular.module('app', [
     /**External modules **/
-        'ngRoute',
         'ui.router',
 
     /**Internal modules **/

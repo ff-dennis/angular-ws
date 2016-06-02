@@ -7,5 +7,6 @@
 module guestbook {
     'use strict';
     angular.module('guestbook', [])
-        .directive('gbEntry', () => new guestbook.EntryDirective());
+        .directive('gbEntry', () => new guestbook.EntryDirective())
+        .directive('nameValidator', () => new guestbook.NameValidatorDirective());
 }

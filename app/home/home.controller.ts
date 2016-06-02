@@ -8,6 +8,7 @@ module home {
         myVariable:string;
         myArray:string[] = [];
         myBoolean:boolean;
+        myName:string;
         dennis:about.IPerson = new about.Webmaster("Dennis");
         entryExample:guestbook.IEntry;
 
