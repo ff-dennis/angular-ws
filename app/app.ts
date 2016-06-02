@@ -7,26 +7,24 @@
 module app {
     'use strict';
     angular.module('app', [
-        /**External modules **/
-        'ngRoute',
+    /**External modules **/
         'ui.router',
 
-        /**Internal modules **/
+    /**Internal modules **/
         'home',
         'about',
-        'guestbook'
+        'guestbook',
+        'registration'
     ]).
         config(config);
 
-    config.$inject = ['$routeProvider'];
-    function config($routeProvider:angular.route.IRouteProvider) {
-        console.log("run app config ...");
-        $routeProvider.
-            when('/home', {
-                controller: 'HomeCtrl',
-                controllerAs: 'vm',
-                templateUrl: 'home/home.tpl.html'
-            }).
-            otherwise('home');
+    config.$inject = ['$urlRouterProvider'];
+
+    /**
+     * Will initialize the configuration for the app
+     * @param $urlRouterProvider
+     */
+    function config($urlRouterProvider:ng.ui.IUrlRouterProvider):void {
+        $urlRouterProvider.otherwise("/home");
     }
 }

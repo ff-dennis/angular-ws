@@ -5,4 +5,8 @@ declare module about {
         likes:number;
         likeMe():void;
     }
+
+    interface IAboutScope{
+
+    }
 }

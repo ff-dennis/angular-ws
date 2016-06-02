@@ -7,5 +7,8 @@
 module about {
     'use strict';
     angular.module('about', [])
-        .directive('psPerson', () => new about.PersonDirective());
+        .directive('psPerson', () => new about.PersonDirective())
+        .controller('AboutCtrl', about.AboutCtrl);
+
+
 }

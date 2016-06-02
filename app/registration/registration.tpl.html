@@ -1,36 +1,84 @@
 <div>
 
-    <form role="form" id="contact">
-        <div class="form-group" id="surename">
-            <label for="surename-input" class="control-label">Vorname</label>
-            <input ng-minlength="5" ng-maxlength="200" type="text" id="surename-input" class="form-control" placeholder="Ihr Vorname?">
-        </div>
-        <div class="form-group" id="name">
-            <label for="name-input" class="control-label">Nachname</label>
-            <input ng-required="true" type="text" id="name-input" class="form-control" placeholder="Ihr Nachname?">
-        </div>
-        <div class="form-group" id="email">
-            <label for="email-input" class="control-label">E-Mail Adresse</label>
-            <input ng-pattern="*" type="text" id="email-input" class="form-control" placeholder="Ihre E-Mail Adresse?">
+    <form name="myForm" id="contact">
+
+    <div class="form-group" id="surename">
+        <label for="surename-input" class="control-label">Vorname</label>
+        <input ng-minlength="5" ng-maxlength="200" type="text" id="surename-input" class="form-control"
+               placeholder="Ihr Vorname?" ng-model="vm.surename">
+    </div>
+    <div class="form-group" id="name">
+        <label for="name-input" class="control-label">Nachname</label>
+        <input ng-required="true" ng-model="vm.name" type="text" id="name-input" class="form-control"
+               placeholder="Ihr Nachname?">
+    </div>
+    <div class="form-group" id="email" name="email">
+        <label for="email-input" class="control-label">E-Mail Adresse</label>
+        <input  ng-model="vm.email" name="email-input" type="email" id="email-input" class="form-control"
+               placeholder="Ihre E-Mail Adresse?">
+        <span class="error" ng-show="myform.email-input.$error.pattern">
+            invalid email!
+        </span>
+    </div>
+
+
+    <div class="form-group" id="gender">
+        <label for="gender-input" class="control-label">Geschlecht</label>
+        <select id="gender-input" ng-model="vm.gender">
+            <option id="male">Männlich</option>
+            <option id="female">Weiblich</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="smoker">
+        <label for="smoker-input" class="control-label">Raucher: </label>
+        <input type="radio" id="smoker-input" ng-model="vm.smoker">
+    </div>
+
+    <div id="hobbies">
+
+        <label class="control-label">Hobbies:</label>
+
+        <div class="row">
+            <div class="col-md-1">Fussball:</div>
+            <div class="col-md-11"><input type="checkbox" ng-model="vm.hobbies.football" name="hobbies" id="football"/></div>
         </div>
 
 
-        <div class="form-group" id="gender">
-            <label for="gender-input" class="control-label">Geschlecht</label>
-            <select id="gender-input">
-                <option id="male">Männlich</option>
-                <option id="female">Weiblich</option>
-            </select>
+        <div class="row">
+            <div class="col-md-1">volleyball:</div>
+            <div class="col-md-11"><input type="checkbox" ng-model="vm.hobbies.volleyball" name="hobbies" id="volleyball"/></div>
         </div>
 
-        <div class="form-group" id="message">
-            <label for="message-input" class="control-label">Nachricht</label>
-            <textarea id="message-input" class="form-control">Ihre Nachricht bitte...</textarea>
+
+        <div class="row">
+            <div class="col-md-1">swimming:</div>
+            <div class="col-md-11"><input type="checkbox" ng-model="vm.hobbies.swimming" name="hobbies" id="swimming"/></div>
         </div>
 
-        <div class="form-group text-right">
-            <button type="submit" id="submitBtn" class="btn btn-primary btn-lg">Absenden</button>
+
+        <div class="row">
+            <div class="col-md-1">golf:</div>
+            <div class="col-md-11"><input type="checkbox"  ng-model="vm.hobbies.golf" name="hobbies" id="golf"/></div>
         </div>
+
+
+        <div class="row">
+            <div class="col-md-1">baseball:</div>
+            <div class="col-md-11"><input type="checkbox" ng-model="vm.hobbies.baseball" name="hobbies" id="baseball"/></div>
+        </div>
+    </div>
+    </br>
+
+    <div class="form-group" id="message">
+        <label for="message-input" class="control-label">Nachricht</label>
+        <textarea id="message-input" class="form-control">Ihre Nachricht bitte...</textarea>
+    </div>
+
+    <div class="form-group text-right">
+        <input type="submit" ng-click="update(user)" id="submitBtn"  class="btn btn-primary btn-lg" value="save">
+
+    </div>
     </form>
 
 </div>

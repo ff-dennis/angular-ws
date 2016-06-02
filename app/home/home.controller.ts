@@ -55,7 +55,6 @@ module home {
         hasCities():boolean {
             return this.myArray && this.myArray.length > 0
         }
-
-
     }
+
 }

@@ -9,7 +9,7 @@
     'use strict';
 
     angular
-        .module('home', [])
+        .module('about', [])
         .config(config);
 
     /**
@@ -24,14 +24,14 @@
     function config($stateProvider: ng.ui.IStateProvider): void {
 
         //About route
-        var home:ng.ui.IState = <ng.ui.IState> {
-            url: '/home',
-            //  controller:'AboutCtrl',
+        var about:ng.ui.IState = <ng.ui.IState> {
+            url: '/about',
+          //  controller:'AboutCtrl',
             controllerAs:'vm',
-            templateUrl: '/app/home/home.tpl.html',
+            templateUrl: '/app/about/about.tpl.html',
         };
 
-        $stateProvider.state('home', home);
+        $stateProvider.state('about', about);
 
     }
 
