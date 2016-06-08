@@ -7,6 +7,6 @@
 module registration {
     'use strict';
 
-    angular.module('registration', [])
-        .controller('RegistrationCtrl', registration.RegistrationCtrl);
+    angular.module('services', [])
+        .controller('GuestbookService', services.GuestbookService);
 }

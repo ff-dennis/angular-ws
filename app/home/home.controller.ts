@@ -6,56 +6,35 @@ module home {
      */
     export class HomeCtrl {
         myVariable:string;
-        myArray:string[] = [];
-        myBoolean:boolean;
-        myName:string;
-        dennis:about.IPerson = new about.Webmaster("Dennis");
-        entryExample:guestbook.IEntry;
+        myBool:boolean;
+        //newCity:string;
+        cities:string[] = [];
+        persons:IPerson[] = [];
+        myInputValue:string;
 
-        // $inject annotation.
-        // It provides $injector with information about dependencies to be injected into constructor
-        // it is better to have it close to the constructor, because the parameters must match in count and type.
-        // See http://docs.angularjs.org/guide/di
-        public static $inject = [
-            '$scope'
-        ];
-        // dependencies are injected via AngularJS $injector
-        // controller's name is registered in Application.ts and specified from ng-controller attribute in index.html
-        constructor(
-            private scope: IHomeScope
-        ) {
+        public static $inject = ['$scope'];
+        constructor(private scope: IHomeScope) {
             console.log("constructor HomeCtrl");
+            this.myVariable =" Init by Constructor";
+            this.initPersonsArray();
 
-            this.myVariable = 'Set by controllers constructor';
-
-            scope.$watch( () => this.myBoolean, (newValue:any, oldValue:any) => {
-                console.log("Neuer Wert:", newValue);
+            scope.$watch(()=>this.myBool, function () {
+                console.log("Der Wert hat sich geändert!");
             });
-
-            this.entryExample = <guestbook.IEntry> {};
-            this.entryExample.content = "Eine wirklich sehr hübsche Seite!";
-            this.entryExample.userName = "Dennis";
         }
 
-        resetMyVariable():void {
-            this.myVariable = "";
+        addNewCity(newCity:string):void {
+            this.cities.push(newCity);
+            console.log("add city", newCity, this.cities);
         }
 
-        setMyVariable(newValue:string):void {
-            this.myVariable = newValue;
+        initPersonsArray():void {
+            let dennis:home.IPerson = <home.IPerson> { firstname: "Dennis", lastname:"Petrick"};
+            let olsi:IPerson = <home.IPerson> { firstname: "Olsi", lastname:"Rrjolli"};
+            this.persons.push(dennis);
+            this.persons.push(olsi);
         }
 
-        initMyArray():void {
-            this.myArray = ["Frankfurt", "München", "Hamburg", "Nürnberg"];
-        }
-
-        addToMyArray(newCity:string):void {
-            this.myArray.push(newCity);
-        }
-
-        hasCities():boolean {
-            return this.myArray && this.myArray.length > 0
-        }
     }
 
 }

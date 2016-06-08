@@ -1,41 +1,27 @@
 /// <reference path='../_all.ts' />
 
 module guestbook {
-    'use strict';
-
-    /**
-     * The directive to display a guestbook entry:
-     */
-    export class EntryDirective implements ng.IDirective {
-        templateUrl = '/app/guestbook/gb-entry.tpl.html';
+    export class GuestbookEntryDirective implements ng.IDirective {
         bindToController = true;
-        controller = EntryDirectiveController;
+        controller = GuestbookEntryDirectiveController;
         controllerAs = "vm";
+
+        templateUrl = "/app/guestbook/gb-entry.tpl.html";
 
         scope = {
             entry: '='
         };
-        public static $inject = ['$scope', '$http']; //Inject GuestbookService
 
-
-        //scope und $http backend init
         constructor() {
-            console.log("constructor directive person");
+            console.log("GuestbookEntryDirective constructor")
         }
     }
 
-    export class EntryDirectiveController {
-        public entry:IEntry;
+    export class GuestbookEntryDirectiveController {
+        entry:IGuestbookEntry;
 
         constructor() {
-            console.log("constructor EntryDirectiveController", this.entry);
+            console.log("GuestbookEntryDirectiveController constructor", this.entry);
         }
-
-        getEntries() {
-            /**
-             * call get entries from service
-             */
-        }
-
     }
 }

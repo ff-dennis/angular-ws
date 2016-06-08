@@ -3,4 +3,9 @@ declare module home {
         myVariable: string;
         vm: HomeCtrl;
     }
+
+    export interface IPerson {
+        firstname:string;
+        lastname:string;
+    }
 }

@@ -1,12 +1,8 @@
 /// <reference path='../_all.ts' />
-/**
- * The main app module.
- *
- * @type {angular.Module}
- */
 module guestbook {
     'use strict';
     angular.module('guestbook', [])
-        .directive('gbEntry', () => new guestbook.EntryDirective())
-        .directive('nameValidator', () => new guestbook.NameValidatorDirective());
+        .controller('GuestbookCtrl', guestbook.GuestbookCtrl)
+        .controller('GuestbookHttpCtrl', guestbook.GuestbookHttpCtrl)
+        .directive('gbEntry', () => new guestbook.GuestbookEntryDirective());
 }

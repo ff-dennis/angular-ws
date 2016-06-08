@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/README.md" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/app.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/guestbook/gb-entry.directive.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/guestbook/guestbook-http.controller.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/guestbook/guestbook.controller.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/guestbook/guestbook.d.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/guestbook/guestbook.module.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/guestbook/guestbook.tpl.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/home/home.controller.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/home/home.d.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/home/home.tpl.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/home/person.directive.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/partials/footer.tpl.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/registration/registration.controller.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/registration/registration.module.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/registration/registration.tpl.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/services/guestbook.service.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/services/services.module.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bower.json" charset="UTF-8" />
+  </component>
+</project>

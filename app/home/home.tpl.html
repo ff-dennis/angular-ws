@@ -1,100 +1,100 @@
 <div>
+    <h1>Home (Überblick)</h1>
 
-    <h1>Home</h1>
-
-    <div class="row">
-        <div class="col-md-3">
-            <h2> ng-bind</h2>
-            <span ng-bind="vm.myVariable"></span>
-        </div>
-        <div class="col-md-3">
-            <h2> ng-model</h2>
-            <input class="form-control" ng-model="vm.myVariable">
-        </div>
+    <h2>Person Direktive</h2>
+    <div class="row" ng-repeat="person in vm.persons">
         <div class="col-md-2">
-            <h2> ng-click</h2>
-            <button class=" btn" ng-click="vm.resetMyVariable()">Reset</button>
-            <button class=" btn" ng-click="vm.setMyVariable('pentasys')">pentasys</button>
+            Person #{{$index+1}}
+        </div>
+        <div class="col-md-8">
+            <ps-person person="person" company="PENTASYS"></ps-person>
         </div>
     </div>
 
-    <h2>conditions</h2>
-
+    <h2>Data-Binding (one-way, two-way)</h2>
     <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-3">
+                    ng-bind
+                </div>
+                <div class="col-md-9">
+                    <span ng-bind="vm.myVariable"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    { { } }
+                </div>
+                <div class="col-md-9">
+                    {{vm.myVariable}}
+                </div>
+            </div>
+        </div>
         <div class="col-md-3">
             <label>
-                <input type="checkbox" ng-model="vm.myBoolean">
-                MyBoolean
+                ng-model 1
+                <input ng-model="vm.myVariable" class="form-control">
             </label>
         </div>
-
-        <div class="col-md-3" ng-show="vm.myBoolean">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <p>Ja, die Option ist aktiviert! (ng-show)</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3" ng-hide="!vm.myBoolean">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <p>Ja, die Option ist aktiviert! (ng-hide)</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3" ng-if="vm.myBoolean">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <p>Ja, die Option ist aktiviert! (ng-if)</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <h2>ng-repeat</h2>
-
-    <div class="row">
         <div class="col-md-3">
-            <button class="btn" ng-click="vm.initMyArray()">initMyArray</button>
-            <div class="col-md-8">
-                <input ng-model="newCity" placeholder="add new city">
-            </div>
-            <div class="col-md-4">
-                <button class="btn" ng-click="vm.addToMyArray(newCity)">Add</button>
-            </div>
-        </div>
-        <div class="col-md-3" data-ng-if="vm.hasCities()">
-            <input class="form-control" type="text" ng-model="searchString">
-            <ul>
-                <li ng-repeat="city in vm.myArray | filter:searchString ">
-                    <p ng-class="{'bg-success' : city === 'Frankfurt',
-                                  'bg-info' : city === 'Köln'
-                                }">{{city}}</p>
-                </li>
-            </ul>
+            <label>
+                ng-model 2
+                <input ng-model="vm.myVariable" class="form-control">
+            </label>
         </div>
     </div>
 
+    <h2>Angular Basic Direktiven</h2>
 
-
-    <h2>component</h2>
     <div class="row">
-        <div class="col-md-12">
-            <new-person person="vm.dennis"></new-person>
+        <div class="col-md-1">
+            <input type="checkbox" ng-model="vm.myBool">
+        </div>
+        <div class="col-md-2">
+            <span ng-bind="vm.myBool"></span>
+        </div>
+        <div class="col-md-3" ng-if="vm.myBool">
+            Jawoll, der Wert ist true (ng-if)
+        </div>
+        <div class="col-md-3" ng-show="vm.myBool">
+            Jawoll, der Wert ist true! (ng-show)
         </div>
     </div>
 
-    <h2>guestbook</h2>
+    <h2>Städteliste (ng-repeat)</h2>
+
     <div class="row">
-        <div class="col-md-6">
-            <gb-entry entry="vm.entryExample"></gb-entry>
+        <div class="col-md-2">
+            <input ng-model="newCity" class="form-control">
         </div>
-
-        <div class="col-md-6">
-            <input ng-model="vm.myName" name-validator>
+        <div class="col-md-2">
+            <button class="btn btn-default" ng-click="vm.addNewCity(newCity)">Add City</button>
         </div>
-
+        <div class="col-md-3">
+            <div ng-repeat="city in vm.cities | filter:'FFM'">
+                <p ng-bind="city" ng-class="{'bg-success': city === 'FFM', 'bg-info': city==='MUC'}"></p>
+            </div>
+        </div>
     </div>
+
+    <h2>Forms</h2>
+
+    <form name="myForm" novalidate>
+        <div class="row">
+            <div class="col-md-6">
+                <input required type="text" class="form-control" placeholder="required" ng-model="vm.myInputValue"
+                       name="myInput">
+            </div>
+            <div class="col-md-6" ng-if=" (myForm.myInput.$dirty || myForm.myInput.$touched)">
+                <ng-messages for="myForm.myInput.$error">
+                    <ng-message when="required">Bitte geben Sie einen Wert ein.</ng-message>
+                </ng-messages>
+            </div>
+            <div class="col-md-12">
+                <pre>myForm.myInput.$error = {{ myForm.myInput.$error | json }}</pre>
+            </div>
+        </div>
+
+    </form>
 </div>

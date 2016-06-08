@@ -1,23 +1,11 @@
 /**
- * Created by rrjollol on 02.06.2016.
+ * Created by petricde on 03.06.2016.
  */
-module registration {
-    'use strict';
-    /**
-     * The controller of registration feature:
-     */
-    export class RegistrationCtrl {
+module registration{
 
-        public static $inject = [
-            '$scope'
-        ];
-
-        constructor() {
-            console.log("constructor registration ctrl");
+    export class RegistrationCtrl{
+        constructor(){
+            console.log('registration constructor');
         }
-
-
     }
-
-
 }

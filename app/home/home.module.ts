@@ -7,5 +7,6 @@
 module home {
     'use strict';
     angular.module('home', [])
-        .controller('HomeCtrl', home.HomeCtrl);
+        .controller('HomeCtrl', home.HomeCtrl)
+        .directive('psPerson', () => new home.PersonDirective());
 }

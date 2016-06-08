@@ -1,4 +1,4 @@
-﻿/// <reference path='_all.ts' />
+/// <reference path='_all.ts' />
 /**
  * The main app module.
  *
@@ -7,20 +7,24 @@
 module app {
     'use strict';
     angular.module('app', [
-    /**External modules **/
+    /** angular modules **/
+        'ngMessages',
+
+    /** external modules **/
         'ui.router',
 
-    /**Internal modules **/
+    /** internal modules **/
         'home',
-        'about',
+        'registration',
         'guestbook',
-        'registration'
+
+        'services'
     ]).
-        config(config);
-        config.$inject = ['$stateProvider','$urlRouterProvider'];
+    config(config);
 
 
-    function config($stateProvider:ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider ):void {
+    config.$inject = ['$stateProvider', '$urlRouterProvider'];
+    function config($stateProvider:ng.ui.IStateProvider, $urlRouterProvider:ng.ui.IUrlRouterProvider):void {
         console.log("run app config ...");
 
         var home:ng.ui.IState = <ng.ui.IState> {
@@ -30,37 +34,25 @@ module app {
             templateUrl: 'home/home.tpl.html'
         };
 
-        var about:ng.ui.IState = <ng.ui.IState> {
-            url: '/about',
-            controller: 'AboutCtrl',
-            controllerAs: 'vm',
-            templateUrl: 'about/about.tpl.html'
-        };
-
-        var aboutDetail:ng.ui.IState = <ng.ui.IState> {
-            url: '/about/:name',
-            controller: 'AboutDetailCtrl',
-            controllerAs: 'vm',
-            templateUrl: 'about/about-detail.tpl.html'
-        };
-
-        var registration:ng.ui.IState = <ng.ui.IState> {
+        var registration:ng.ui.IState = <ng.ui.IState>{
             url: '/registration',
-            templateUrl: '/app/registration/registration.tpl.html',
-            controller: "RegistrationCtrl",
-            controllerAs: 'vm'
+            controller: 'RegistrationCtrl',
+            controllerAs: 'vm',
+            templateUrl: 'registration/registration.tpl.html'
+        };
+
+        var guestbook:ng.ui.IState = <ng.ui.IState>{
+            url: '/guestbook',
+            controller: 'GuestbookCtrl',
+            //controller: 'GuestbookHttpCtrl',
+            controllerAs: 'vm',
+            templateUrl: 'guestbook/guestbook.tpl.html'
         };
 
         $urlRouterProvider.otherwise("/home");
 
-
-
-        /**
-         * TODO Guestbook
-         */
-
         $stateProvider.state('home', home)
-            .state('about', about)
-            .state('registration', registration);
+            .state('registration', registration)
+            .state('guestbook', guestbook);
     }
 }
