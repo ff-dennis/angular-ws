@@ -1,6 +1,6 @@
 /// <reference path='../_all.ts' />
 /**
- * The main app module.
+ * The registration  module.
  *
  * @type {angular.Module}
  */
