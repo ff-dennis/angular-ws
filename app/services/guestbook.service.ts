@@ -11,9 +11,13 @@ module services {
 
         public static $inject = ['$http'];
         constructor(private httpService:ng.IHttpService) {
-            this.handlerUrl = "http://192.168.0.117:8081/api/v1/guestbook/messages"; //todo uri anpassen
+            this.handlerUrl = "http://192.168.0.117:8081/api/v1/guestbook/messages";
         }
 
+        /**
+         * get all guestbook entries
+         * @returns {all guestbook entries
+         */
         getEntries():ng.IPromise<guestbook.IGuestbookEntry[]> {
             var result:ng.IPromise< any> = this.httpService.get(this.handlerUrl)
                 .then((respond:any) => {
@@ -25,6 +29,11 @@ module services {
             return result;
         }
 
+        /**
+         * Save a guestbook entry
+         * @param entry
+         * @returns status code if success or not
+         */
         saveEntry(entry:guestbook.IGuestbookEntry) {
             return this.httpService.post(this.handlerUrl,entry);
         }
