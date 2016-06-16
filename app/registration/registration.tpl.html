@@ -1,44 +1,69 @@
 <div>
-    <h1>Registrierung</h1>
 
-
-    <div>
-        errors: {{myForm.name.$error | json}}
-
-    </div>
     <form name="myForm">
-        <div class="row form-group">
-            <div class="col-md-12">
-                <label for="name" class="control-label">Name</label>
-                <input required class="form-control" ng-model="user.name" name="name" id="name" ng-minlength="5"
-                       ng-maxlength="10">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <label for="alter" class="control-label">Alter</label>
-                <input name="alter" id="alter" ng-model="user.alter">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <label for="email" class="control-label">email</label>
-                <input name="email" type="email" required id="email">
-            </div>
 
-            <div ng-messages="myForm.email.$error">
-                <div ng-message="required">Email eingeben!</div>
 
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Registrierung</h2>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <label for="vorname" class="control-label">Name</label>
-                <input name="vorname" id="vorname" pattern="[a-z]*">
-            </div>
-        </div>
+            <div class="panel-body">
+                <div class="col-md-5">
 
-        <button class="btn btn-info" ng-disabled="myForm.$invalid">Senden</button>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="vorname">Vorname</label>
+                            <input required class="form-control" ng-model="user.vorname" name="name" id="vorname"
+                                   ng-minlength="5"
+                                   ng-maxlength="10"></div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="nachname">Nachname</label>
+                            <input required class="form-control" ng-model="user.nachname" name="name" id="nachname"
+                                   ng-minlength="5"
+                                   ng-maxlength="10"></div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="alter">Alter</label>
+                            <input type="number" name="alter" id="alter" class="form-control"
+                                   ng-model="user.alter">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="email">Email</label>
+                            <input type="email" required name="text" id="email" class="form-control"
+                                   ng-model="user.email">
+                        </div>
+
+                    </div>
+
+
+                    <div ng-messages="myForm.email.$error">
+                        <div ng-message="required">Email eingeben!</div>
+
+
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <button class="btn btn-info" ng-disabled="myForm.$invalid">Senden</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        errors: {{myForm.name.$error | json}}
+
+                    </div>
+
+                </div>
 
 
     </form>
