@@ -1,6 +1,6 @@
 <div>
 
-    <form name="myForm">
+    <form name="myForm" novalidate>
 
 
         <div class="panel panel-default">
@@ -12,33 +12,34 @@
 
 
                     <div class="row form-group">
-                        <div class="col-md-12">
+                        <div class="col-md-12" ng-class="{ 'has-error': myForm.vorname.$invalid }">
                             <label for="vorname">Vorname</label>
-                            <input required class="form-control" ng-model="user.vorname" name="name" id="vorname"
+                            <input required class="form-control" ng-model="user.vorname" name="vorname" id="vorname"
                                    ng-minlength="5"
                                    ng-maxlength="10"></div>
                     </div>
 
+
                     <div class="row form-group">
-                        <div class="col-md-12">
+                        <div class="col-md-12"  ng-class="{ 'has-error': myForm.nachname.$invalid }">
                             <label for="nachname">Nachname</label>
-                            <input required class="form-control" ng-model="user.nachname" name="name" id="nachname"
+                            <input required class="form-control" ng-model="user.nachname" name="nachname" id="nachname"
                                    ng-minlength="5"
                                    ng-maxlength="10"></div>
                     </div>
 
                     <div class="row form-group">
-                        <div class="col-md-12">
+                        <div class="col-md-12"  ng-class="{ 'has-error': myForm.alter.$invalid }">
                             <label for="alter">Alter</label>
-                            <input type="number" name="alter" id="alter" class="form-control"
+                            <input type="number" name="alter" id="alter" required class="form-control"
                                    ng-model="user.alter">
                         </div>
                     </div>
 
                     <div class="row form-group">
-                        <div class="col-md-12">
+                        <div class="col-md-12"  ng-class="{ 'has-error': myForm.email.$invalid }">
                             <label for="email">Email</label>
-                            <input type="email" required name="text" id="email" class="form-control"
+                            <input type="email" required name="email" id="email" class="form-control"
                                    ng-model="user.email">
                         </div>
 
@@ -59,12 +60,25 @@
 
                 <div class="row form-group">
                     <div class="col-md-12">
-                        errors: {{myForm.name.$error | json}}
+                      vorname ->  errors: {{myForm.vorname.$error | json}}
 
                     </div>
 
                 </div>
 
+
+                <div ng-messages="field.$error">
+                    <ul class="list-unstyled validation-errors"
+                        ng-show="field.$invalid && (field.$touched || field.$dirty || form.$triedSubmit)">
+                        <li ng-message="required">This field is required</li>
+                        <!-- other messages -->
+                    </ul>
+                    <div class="validation-success"
+                         ng-show="field.$valid && !field.$invalid"></div>
+                </div>
+                <div class="validation-success" ng-show="field.$valid  && !field.$invalid"></div>
+            </div>
+        </div>
 
     </form>
 </div>
